@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8000";
+export const BASE_URL = "https://smart-check-backend-8a1e.onrender.com/";
 
 export const API_PATHS = {
   // AUTH APIs
