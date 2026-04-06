@@ -35,30 +35,30 @@ const Home = () => {
                     title: "Total Balance",
                     value: `₹${Number(data.totalBalance || 0).toLocaleString("en-IN")}`,
                     icon: LuWallet,
-                    iconBg: "bg-violet-100",
-                    iconColor: "text-violet-600",
+                    iconBg: "bg-violet-100 dark:bg-violet-900/30",
+                    iconColor: "text-violet-600 dark:text-violet-300",
                     change: "+0%",
-                    changeColor: "text-emerald-600",
+                    changeColor: "text-emerald-600 dark:text-emerald-400",
                 },
                 {
                     id: 2,
                     title: "Total Income",
                     value: `₹${Number(data.totalIncome || 0).toLocaleString("en-IN")}`,
                     icon: LuArrowUpRight,
-                    iconBg: "bg-emerald-100",
-                    iconColor: "text-emerald-600",
+                    iconBg: "bg-emerald-100 dark:bg-emerald-900/30",
+                    iconColor: "text-emerald-600 dark:text-emerald-300",
                     change: "+0%",
-                    changeColor: "text-emerald-600",
+                    changeColor: "text-emerald-600 dark:text-emerald-400",
                 },
                 {
                     id: 3,
                     title: "Total Expense",
                     value: `₹${Number(data.totalExpense || 0).toLocaleString("en-IN")}`,
                     icon: LuArrowDownRight,
-                    iconBg: "bg-rose-100",
-                    iconColor: "text-rose-600",
+                    iconBg: "bg-rose-100 dark:bg-rose-900/30",
+                    iconColor: "text-rose-600 dark:text-rose-300",
                     change: "+0%",
-                    changeColor: "text-rose-600",
+                    changeColor: "text-rose-600 dark:text-rose-400",
                 },
             ]);
 
@@ -146,14 +146,14 @@ const Home = () => {
                         return (
                             <div
                                 key={item.id}
-                                className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md"
+                                className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
                             >
                                 <div className="flex items-start justify-between gap-4">
                                     <div>
-                                        <p className="text-sm font-medium text-slate-500">
+                                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
                                             {item.title}
                                         </p>
-                                        <h3 className="mt-2 text-2xl font-bold text-slate-800">
+                                        <h3 className="mt-2 text-2xl font-bold text-slate-800 dark:text-slate-100">
                                             {item.value}
                                         </h3>
                                     </div>
@@ -177,7 +177,7 @@ const Home = () => {
                 </div>
 
                 {/* Recent Transactions */}
-                <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
                     <div
                         className="p-5 text-white"
                         style={{
@@ -191,7 +191,7 @@ const Home = () => {
                         </p>
                     </div>
 
-                    <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-4 sm:p-5">
+                    <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-4 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 sm:p-5">
                         {transactions.length > 0 ? (
                             <div className="space-y-3">
                                 {transactions.map((item, index) => {
@@ -202,18 +202,18 @@ const Home = () => {
                                     return (
                                         <div
                                             key={item?._id || index}
-                                            className="flex flex-col gap-3 rounded-2xl border border-white/60 bg-white/90 p-4 shadow-sm backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between"
+                                            className="flex flex-col gap-3 rounded-2xl border border-white/60 bg-white/90 p-4 shadow-sm backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/90 sm:flex-row sm:items-center sm:justify-between"
                                         >
                                             <div className="flex items-start gap-3">
-                                                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 shadow-sm">
+                                                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 shadow-sm dark:bg-slate-800">
                                                     <LuReceiptText className="text-lg text-[#2c73d2]" />
                                                 </div>
 
                                                 <div>
-                                                    <p className="text-sm font-semibold text-slate-800 sm:text-base">
+                                                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 sm:text-base">
                                                         {item?.title || "Transaction"}
                                                     </p>
-                                                    <p className="mt-1 text-xs text-slate-500 sm:text-sm">
+                                                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 sm:text-sm">
                                                         {item?.category || "General"} • {item?.date || "No date"}
                                                     </p>
                                                 </div>
@@ -222,8 +222,8 @@ const Home = () => {
                                             <div className="flex justify-start sm:justify-end">
                                                 <span
                                                     className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-semibold ${isIncome
-                                                            ? "bg-emerald-50 text-emerald-600"
-                                                            : "bg-rose-50 text-rose-600"
+                                                            ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-300"
+                                                            : "bg-rose-50 text-rose-600 dark:bg-rose-900/30 dark:text-rose-300"
                                                         }`}
                                                 >
                                                     {isIncome ? (
@@ -239,14 +239,14 @@ const Home = () => {
                                 })}
                             </div>
                         ) : (
-                            <div className="rounded-2xl border border-dashed border-slate-200 bg-white/80 py-12 text-center">
-                                <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 shadow-sm">
-                                    <LuReceiptText className="text-2xl text-slate-400" />
+                            <div className="rounded-2xl border border-dashed border-slate-200 bg-white/80 py-12 text-center dark:border-slate-700 dark:bg-slate-900/80">
+                                <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 shadow-sm dark:bg-slate-800">
+                                    <LuReceiptText className="text-2xl text-slate-400 dark:text-slate-500" />
                                 </div>
-                                <p className="text-sm font-medium text-slate-600">
+                                <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
                                     No recent transactions available.
                                 </p>
-                                <p className="mt-1 text-xs text-slate-400">
+                                <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
                                     Start adding income or expense to see activity here.
                                 </p>
                             </div>

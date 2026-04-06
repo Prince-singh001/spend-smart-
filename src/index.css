@@ -398,3 +398,21 @@
     @apply bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent;
   }
 }
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.dark body {
+  background: #0f172a;
+  color: #e2e8f0;
+}

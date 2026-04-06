@@ -114,58 +114,58 @@ const Expense = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-                    <div className="rounded-3xl border border-rose-100 bg-gradient-to-br from-rose-50 to-pink-100 p-5 shadow-sm">
+                    <div className="rounded-3xl border border-rose-100 bg-gradient-to-br from-rose-50 to-pink-100 p-5 shadow-sm dark:border-rose-900/40 dark:from-rose-950 dark:to-pink-950">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-slate-500">Total Expense</p>
-                                <h3 className="mt-2 text-2xl font-bold text-slate-800">
+                                <p className="text-sm text-slate-500 dark:text-slate-400">Total Expense</p>
+                                <h3 className="mt-2 text-2xl font-bold text-slate-800 dark:text-slate-100">
                                     ₹{totalExpense.toLocaleString("en-IN")}
                                 </h3>
                             </div>
-                            <div className="rounded-2xl bg-white p-3 shadow">
-                                <IndianRupee className="h-6 w-6 text-rose-500" />
+                            <div className="rounded-2xl bg-white p-3 shadow dark:bg-slate-900">
+                                <IndianRupee className="h-6 w-6 text-rose-500 dark:text-rose-300" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="rounded-3xl border border-violet-100 bg-gradient-to-br from-violet-50 to-purple-100 p-5 shadow-sm">
+                    <div className="rounded-3xl border border-violet-100 bg-gradient-to-br from-violet-50 to-purple-100 p-5 shadow-sm dark:border-violet-900/40 dark:from-violet-950 dark:to-purple-950">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-slate-500">Transactions</p>
-                                <h3 className="mt-2 text-2xl font-bold text-slate-800">
+                                <p className="text-sm text-slate-500 dark:text-slate-400">Transactions</p>
+                                <h3 className="mt-2 text-2xl font-bold text-slate-800 dark:text-slate-100">
                                     {totalTransactions}
                                 </h3>
                             </div>
-                            <div className="rounded-2xl bg-white p-3 shadow">
-                                <FolderKanban className="h-6 w-6 text-violet-500" />
+                            <div className="rounded-2xl bg-white p-3 shadow dark:bg-slate-900">
+                                <FolderKanban className="h-6 w-6 text-violet-500 dark:text-violet-300" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50 to-cyan-100 p-5 shadow-sm">
+                    <div className="rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50 to-cyan-100 p-5 shadow-sm dark:border-sky-900/40 dark:from-sky-950 dark:to-cyan-950">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-slate-500">Current Month</p>
-                                <h3 className="mt-2 text-lg font-bold text-slate-800">
+                                <p className="text-sm text-slate-500 dark:text-slate-400">Current Month</p>
+                                <h3 className="mt-2 text-lg font-bold text-slate-800 dark:text-slate-100">
                                     {currentMonth}
                                 </h3>
                             </div>
-                            <div className="rounded-2xl bg-white p-3 shadow">
-                                <CalendarDays className="h-6 w-6 text-sky-500" />
+                            <div className="rounded-2xl bg-white p-3 shadow dark:bg-slate-900">
+                                <CalendarDays className="h-6 w-6 text-sky-500 dark:text-sky-300" />
                             </div>
                         </div>
                     </div>
 
-                    <div className="rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-green-100 p-5 shadow-sm">
+                    <div className="rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-green-100 p-5 shadow-sm dark:border-emerald-900/40 dark:from-emerald-950 dark:to-green-950">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className="text-sm text-slate-500">Profile</p>
-                                <h3 className="mt-2 text-lg font-bold text-slate-800">
+                                <p className="text-sm text-slate-500 dark:text-slate-400">Profile</p>
+                                <h3 className="mt-2 text-lg font-bold text-slate-800 dark:text-slate-100">
                                     {userName}
                                 </h3>
                             </div>
-                            <div className="rounded-2xl bg-white p-3 shadow">
-                                <User className="h-6 w-6 text-emerald-500" />
+                            <div className="rounded-2xl bg-white p-3 shadow dark:bg-slate-900">
+                                <User className="h-6 w-6 text-emerald-500 dark:text-emerald-300" />
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@ const Expense = () => {
                     onAddExpense={() => setOpenAddExpenseModal(true)}
                 />
 
-                <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
                     <div className="bg-gradient-to-r from-[#D16BA5] via-[#845EC2] to-[#2C73D2] px-6 py-4 text-white">
                         <div className="flex items-center gap-3">
                             <Wallet className="h-5 w-5" />
@@ -186,14 +186,14 @@ const Expense = () => {
 
                     <div className="p-4">
                         {loading ? (
-                            <p className="py-8 text-center text-slate-500">
+                            <p className="py-8 text-center text-slate-500 dark:text-slate-400">
                                 Loading expense data...
                             </p>
                         ) : expenseData.length > 0 ? (
                             <div className="overflow-x-auto">
                                 <table className="min-w-full overflow-hidden rounded-2xl">
                                     <thead>
-                                        <tr className="bg-slate-100 text-left text-sm text-slate-600">
+                                        <tr className="bg-slate-100 text-left text-sm text-slate-600 dark:bg-slate-800 dark:text-slate-300">
                                             <th className="px-4 py-3">Category</th>
                                             <th className="px-4 py-3">Amount</th>
                                             <th className="px-4 py-3">Date</th>
@@ -204,12 +204,12 @@ const Expense = () => {
                                         {expenseData.map((item, index) => (
                                             <tr
                                                 key={item?._id || index}
-                                                className="border-b border-slate-100 text-sm text-slate-700 hover:bg-slate-50"
+                                                className="border-b border-slate-100 text-sm text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-800/60"
                                             >
                                                 <td className="px-4 py-3 font-medium">
                                                     {item?.source || item?.category || "Expense"}
                                                 </td>
-                                                <td className="px-4 py-3 font-semibold text-rose-600">
+                                                <td className="px-4 py-3 font-semibold text-rose-600 dark:text-rose-400">
                                                     ₹{Number(item?.amount || 0).toLocaleString("en-IN")}
                                                 </td>
                                                 <td className="px-4 py-3">
@@ -226,11 +226,11 @@ const Expense = () => {
                                 </table>
                             </div>
                         ) : (
-                            <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 py-10 text-center">
-                                <p className="text-sm font-medium text-slate-600">
+                            <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 py-10 text-center dark:border-slate-700 dark:bg-slate-800/40">
+                                <p className="text-sm font-medium text-slate-600 dark:text-slate-300">
                                     No expense records found.
                                 </p>
-                                <p className="mt-1 text-xs text-slate-400">
+                                <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
                                     Add your first expense to see it here.
                                 </p>
                             </div>
@@ -241,7 +241,7 @@ const Expense = () => {
 
             {openAddExpenseModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-                    <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl">
+                    <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl dark:bg-slate-900">
                         <div className="flex items-center justify-between rounded-t-3xl bg-gradient-to-r from-[#D16BA5] via-[#845EC2] to-[#2C73D2] px-6 py-4 text-white">
                             <h2 className="text-lg font-semibold">Add New Expense</h2>
                             <button
