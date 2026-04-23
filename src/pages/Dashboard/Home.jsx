@@ -222,8 +222,8 @@ const Home = () => {
                                             <div className="flex justify-start sm:justify-end">
                                                 <span
                                                     className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-semibold ${isIncome
-                                                            ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-300"
-                                                            : "bg-rose-50 text-rose-600 dark:bg-rose-900/30 dark:text-rose-300"
+                                                        ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-300"
+                                                        : "bg-rose-50 text-rose-600 dark:bg-rose-900/30 dark:text-rose-300"
                                                         }`}
                                                 >
                                                     {isIncome ? (

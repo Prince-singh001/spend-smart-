@@ -5,18 +5,34 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
     const inputRef = useRef(null);
     const [previewUrl, setPreviewUrl] = useState(null);
 
-    // Generate preview if image exists (useful when editing profile)
     useEffect(() => {
-        if (image) {
+        if (!image) {
+            return;
+        }
+
+        // If image is already a URL string
+        if (typeof image === "string") {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setPreviewUrl(image);
+            return;
+        }
+
+        // If image is a File object
+        if (image instanceof File || image instanceof Blob) {
             const objectUrl = URL.createObjectURL(image);
             setPreviewUrl(objectUrl);
 
-            return () => URL.revokeObjectURL(objectUrl);
+            return () => {
+                URL.revokeObjectURL(objectUrl);
+            };
         }
+
+        // fallback
+        setPreviewUrl(null);
     }, [image]);
 
     const handleImageChange = (event) => {
-        const file = event.target.files[0];
+        const file = event.target.files?.[0];
 
         if (file) {
             setImage(file);
@@ -26,16 +42,18 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
     const handleRemoveImage = () => {
         setImage(null);
         setPreviewUrl(null);
+
+        if (inputRef.current) {
+            inputRef.current.value = "";
+        }
     };
 
     const onChooseFile = () => {
-        inputRef.current.click();
+        inputRef.current?.click();
     };
 
     return (
         <div className="flex flex-col items-center mb-6">
-
-            {/* Hidden File Input */}
             <input
                 type="file"
                 accept="image/*"
@@ -44,9 +62,7 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
                 className="hidden"
             />
 
-            {/* Profile Preview */}
             <div className="w-28 h-28 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-purple-400 shadow-md">
-
                 {previewUrl ? (
                     <img
                         src={previewUrl}
@@ -56,12 +72,9 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
                 ) : (
                     <LuUser className="text-4xl text-gray-400" />
                 )}
-
             </div>
 
-            {/* Buttons */}
             <div className="flex gap-3 mt-4">
-
                 <button
                     type="button"
                     onClick={onChooseFile}
@@ -80,7 +93,6 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
                         Remove
                     </button>
                 )}
-
             </div>
         </div>
     );

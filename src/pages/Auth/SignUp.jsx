@@ -121,7 +121,7 @@ function SignUp() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-medium disabled:opacity-60"
+                        className="w-full py-3 bg-purple-600 text-black rounded-lg hover:bg-purple-700 transition font-medium disabled:opacity-60"
                     >
                         {loading ? "Creating..." : "Sign Up"}
                     </button>

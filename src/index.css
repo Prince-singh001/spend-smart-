@@ -371,7 +371,6 @@
   background: #94a3b8;
 }
 
-/* Utilities */
 @layer utilities {
   .text-balance-safe {
     word-wrap: break-word;
